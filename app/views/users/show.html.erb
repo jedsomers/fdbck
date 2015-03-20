@@ -1,0 +1,28 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+    <aside class="col-md-4">
+        <section class="user_info">
+            <% if @user.picture? %>
+            <%= image_tag @user.picture.url %>
+            <% else %>
+                <%= gravatar_for @user %>
+                <% end %>
+                <h1><%= @user.name %></h1>
+                <span><%= pluralize(@user.feedbacks.count, "feedback") %></span>
+         </section>
+         
+         <section class="feedback_form">
+             <%= render 'shared/feedback_form' %>
+         </section>
+        
+    </aside>
+
+
+    <div class="col-md-8">
+       
+        <h3>Feedback (<%= @user.feedbacks.count %> comments for <%= @user.name %>)</h3>
+       <%= render 'shared/feed' %>
+       
+      </div>
+
+</div>

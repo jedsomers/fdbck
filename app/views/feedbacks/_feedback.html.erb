@@ -1,0 +1,6 @@
+<li id="feedback-<%= feedback.id %>">
+    <span class="content"><%= feedback.content %></span>
+    <span class="timestamp">
+        Left <%= time_ago_in_words(feedback.created_at) %> ago.
+    </span>
+</li>
